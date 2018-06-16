@@ -2,6 +2,7 @@
 Represents the chromosomes in GA's population.
 The object is collection of individual routes taken by trucks.
 '''
+from excel import *
 from routemanager import *
 
 class Route:
@@ -93,9 +94,39 @@ class Route:
         print (self.routeLengths)
         #for k in range(RouteManager.numberOfDustbins()-1):
         #    print (self.base[k].toString())
+        truck1 = []
+        truck2 = []
+        truck3 = []
+
         for i in range(numTrucks):
             for j in range(self.routeLengths[i]):
-                geneString += self.getDustbin(i,j).toString() + '|'
+                place = self.getDustbin(i, j).toString()
+                geneString += place + '|'
+
+                if i == 0:
+                    truck1.append(place)
+                elif i == 1:
+                    truck2.append(place)
+                else:
+                    truck3.append(place)
+
             geneString += '\n'
 
+        save_data('aaa.xlsx', 'results', 2, 2, truck1, truck2, truck3)
+
         return geneString
+
+    def get_route_distance(self, truck_index):
+
+        place1 = self.getDustbin(truck_index, 0)
+        distance = 0.0
+        for j in range(self.routeLengths[truck_index] + 1):
+            if j == self.routeLengths[truck_index]:
+                place2 = self.getDustbin(truck_index, 0)
+            else:
+                place2 = self.getDustbin(truck_index, j)
+            distance = distance + place1.distanceTo(place2)
+            print('Distance from ', place1.toString(), ' to ', place2.toString(), ':', distance)
+            place1 = place2
+        return distance
+
