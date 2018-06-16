@@ -6,7 +6,7 @@ from routemanager import *
 
 class Route:
     # Good old constructor
-    def __init__ (self, route = None):
+    def __init__ (self, route=None):
         # 2D array which is collection of respective routes taken by trucks
         self.route = []
         # 1D array having routes in a series - used during crossover operation
@@ -24,7 +24,7 @@ class Route:
         # creating empty route
         if route == None:
             for i in range(RouteManager.numberOfDustbins()-1):
-                self.base.append(Dustbin(-1,-1))
+                self.base.append(Dustbin(None))
 
         else:
             self.route = route
@@ -62,8 +62,8 @@ class Route:
 
     # Return total ditance covered in all subroutes
     def getDistance(self):
-        if self.distance == 0:
-            routeDistance = 0
+        if self.distance == 0.0:
+            routeDistance = 0.0
 
             for i in range(numTrucks):
                 for j in range(self.routeLengths[i]):
@@ -77,7 +77,7 @@ class Route:
 
                     routeDistance += fromDustbin.distanceTo(destinationDustbin)
 
-        distance =  routeDistance
+        distance = routeDistance
         return routeDistance
 
     # Checks if the route contains a particular dustbin
