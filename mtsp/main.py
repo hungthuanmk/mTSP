@@ -1,11 +1,14 @@
 from galogic import *
+from excel import *
 import matplotlib.pyplot as plt
 import progressbar
 pbar = progressbar.ProgressBar()
 
 # Add Dustbins
-for i in range(numNodes):
-    RouteManager.addDustbin(Dustbin('Vietnam'))
+# for i in range(numNodes):
+#     RouteManager.addDustbin(Dustbin('Vietnam'))
+
+load_data('Database.xlsx', 2, 31)
 
 random.seed(seedValue)
 yaxis = [] # Fittest value (distance)

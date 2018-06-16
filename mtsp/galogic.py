@@ -35,9 +35,9 @@ class GA:
 
     # Function to implement crossover operation
     @classmethod
-    def crossover (cls, parent1, parent2):
+    def crossover(cls, parent1, parent2):
         child = Route()
-        child.base.append(Dustbin(-1, -1)) # since size is (numNodes - 1) by default
+        child.base.append(Dustbin(None)) # since size is (numNodes - 1) by default
         startPos = 0
         endPos = 0
         while (startPos >= endPos):
@@ -67,7 +67,7 @@ class GA:
                         child.base[i1] =  parent2.base[i]
                         break
 
-        k=0
+        k = 0
         child.base.pop(0)
         for i in range(numTrucks):
             child.route[i].append(RouteManager.getDustbin(0)) # add same first node for each route
