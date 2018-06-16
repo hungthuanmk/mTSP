@@ -4,16 +4,20 @@ Locatin coordinates can be passed while creating the object or they
 will be assigned random values.
 '''
 from globals import *
+from ggmap import *
 
 class Dustbin:
 	# Good old constructor
-	def __init__ (self, x = None, y = None):
-		if x == None and y == None:
-			self.x = random.randint(0, xMax)
-			self.y = random.randint(0, yMax)
-		else:
-			self.x = x
-			self.y = y
+	# def __init__ (self, x = None, y = None):
+	# 	if x == None and y == None:
+	# 		self.x = random.randint(0, xMax)
+	# 		self.y = random.randint(0, yMax)
+	# 	else:
+	# 		self.x = x
+	# 		self.y = y
+
+	def __init__ (self, _address):
+		self.x, self.y = get_coordinate(_address)
 
 	def getX (self):
 		return self.x
