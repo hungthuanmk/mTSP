@@ -7,15 +7,15 @@ Contains all global variables specific to simulation
 xMax = 1000
 yMax = 1000
 seedValue = 1
-numNodes = 200
-numGenerations = 70
+numNodes = 29
+numGenerations = 200
 # size of population
 populationSize = 100
 mutationRate = 0.02
 tournamentSize = 10
 elitism = True
 # number of trucks
-numTrucks = 10
+numTrucks = 3
 
 def random_range(n, total):
     """Return a randomly chosen list of n positive integers summing to total.
