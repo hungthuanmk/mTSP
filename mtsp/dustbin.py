@@ -9,8 +9,8 @@ from math import sin, cos, atan2, radians, sqrt
 
 class Dustbin:
 
-    def __init__ (self, _address = None):
-        self.address = _address;
+    def __init__ (self, _address=None):
+        self.address = _address
         if _address is None:
             self.lat = self.long = -1
         else:

@@ -7,8 +7,8 @@ Contains all global variables specific to simulation
 xMax = 1000
 yMax = 1000
 seedValue = 1
-numNodes = 29
-numGenerations = 200
+numNodes = 30
+numGenerations = 500
 # size of population
 populationSize = 100
 mutationRate = 0.02
@@ -28,8 +28,13 @@ def random_range(n, total):
 # Maximum and minimum values are maintained to reach optimal result
 def route_lengths():
     upper = (numNodes + numTrucks - 1)
-    fa = upper/numTrucks*1.6 # max route length
-    fb = upper/numTrucks*0.6 # min route length
+    fa = upper/numTrucks*1.1 # max route length
+    fa = 12
+    fb = 6
+    # fa = 12
+    # fb = upper/numTrucks*0.9 # min route
+    # fa = 1
+    # fb = 12
     a = random_range(numTrucks, upper)
     while 1:
         if all( i < fa and i > fb  for i in a):

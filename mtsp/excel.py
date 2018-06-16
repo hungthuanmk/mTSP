@@ -8,7 +8,7 @@ def load_data(file_name, first_row, last_row):
     ws = wb.get_sheet_by_name('address')
     print(ws)
 
-    for row in range(first_row, last_row):
+    for row in range(first_row, last_row+1):
         code = ws.cell(row=row, column=1).value
         address = ws.cell(row=row, column=3).value
         print(code, ' | ', address)
