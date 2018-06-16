@@ -8,16 +8,9 @@ from ggmap import *
 from math import sin, cos, atan2, radians, sqrt
 
 class Dustbin:
-	# Good old constructor
-	# def __init__ (self, x = None, y = None):
-	# 	if x == None and y == None:
-	# 		self.x = random.randint(0, xMax)
-	# 		self.y = random.randint(0, yMax)
-	# 	else:
-	# 		self.x = x
-	# 		self.y = y
 
     def __init__ (self, _address = None):
+        self.address = _address;
         if _address is None:
             self.lat = self.long = -1
         else:
@@ -56,8 +49,9 @@ class Dustbin:
 
     # Gives string representation of the Object with coordinates
     def toString (self):
-        s =  '(' + str(self.getlat()) + ',' + str(self.getlong()) + ')'
-        return s
+        # s =  '(' + str(self.getlat()) + ',' + str(self.getlong()) + ')'
+        # return s
+        return self.address
 
     # Check if cordinates have been assigned or not
     # Dusbins with (-1, -1) as coordinates are created during creation on chromosome objects
