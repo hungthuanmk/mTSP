@@ -15,7 +15,7 @@ def load_data(file_name, first_row, last_row):
 
         # node = Node(code=code, address=address)
 
-        RouteManager.addDustbin(Dustbin(_address=address))
+        RouteManager.addDustbin(Dustbin(_id=row, _address=address))
 
         # nodes.append(node)
 

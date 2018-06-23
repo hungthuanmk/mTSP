@@ -9,12 +9,15 @@ from math import sin, cos, atan2, radians, sqrt
 
 class Dustbin:
 
-    def __init__ (self, _address=None):
+    def __init__ (self, _id, _address=None):
         self.address = _address
+        self.id = id
         if _address is None:
             self.lat = self.long = -1
         else:
             self.lat, self.long = get_coordinate(_address)
+            # self.lat = 1
+            # self.long = 1
 
     def getlat (self):
         return self.lat
@@ -29,23 +32,27 @@ class Dustbin:
 # 	dis = math.sqrt((xDis*xDis) + (yDis*yDis))
 # 	return dis
 
+    # def distanceTo(self, db):
+    #     lon1, lat1 = self.long, self.lat
+    #     lon2, lat2 = db.long, db.lat
+    #
+    #     R = 6371000  # radius of Earth in meters
+    #     phi_1 = radians(lat1)
+    #     phi_2 = radians(lat2)
+    #
+    #     delta_phi = radians(lat2 - lat1)
+    #     delta_lambda = radians(lon2 - lon1)
+    #
+    #     a = sin(delta_phi / 2.0) ** 2 + \
+		# 	cos(phi_1) * cos(phi_2) * \
+		# 	sin(delta_lambda / 2.0) ** 2
+    #     c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    #
+    #     return R * c
+
     def distanceTo(self, db):
-        lon1, lat1 = self.long, self.lat
-        lon2, lat2 = db.long, db.lat
+        return get_direction_distance(self.getlat(), self.getlong(), db.getlat(), db.getlong(), address1=self.address, address2=db.address)
 
-        R = 6371000  # radius of Earth in meters
-        phi_1 = radians(lat1)
-        phi_2 = radians(lat2)
-
-        delta_phi = radians(lat2 - lat1)
-        delta_lambda = radians(lon2 - lon1)
-
-        a = sin(delta_phi / 2.0) ** 2 + \
-			cos(phi_1) * cos(phi_2) * \
-			sin(delta_lambda / 2.0) ** 2
-        c = 2 * atan2(sqrt(a), sqrt(1 - a))
-
-        return R * c
 
     # Gives string representation of the Object with coordinates
     def toString (self):

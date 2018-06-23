@@ -1,9 +1,7 @@
 from galogic import *
 from excel import *
 from route import *
-import matplotlib
-matplotlib.use('Qt5Agg')
-import matplotlib.pyplot as plt
+from ggmap import *
 import progressbar
 from visualizer import *
 pbar = progressbar.ProgressBar()
@@ -13,10 +11,13 @@ pbar = progressbar.ProgressBar()
 #     RouteManager.addDustbin(Dustbin('Vietnam'))
 
 load_data('Database.xlsx', 2, 31)
+# get_direction_distance(10.7826608, 106.695915, 10.7774284, 106.6856664)
 
 random.seed(seedValue)
-yaxis = [] # Fittest value (distance)
-xaxis = [] # Generation count
+yaxis = []
+# Fittest value (distance)
+xaxis = []
+# Generation count
 
 pop = Population(populationSize, True)
 globalRoute = pop.getFittest()
@@ -24,6 +25,7 @@ print('Initial minimum distance: ' + str(globalRoute.getDistance()))
 
 visualizer = Visualizer(1)
 visualizer2 = Visualizer(2)
+
 
 # Start evolving
 for i in pbar(range(numGenerations)):

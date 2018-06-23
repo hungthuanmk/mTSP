@@ -12,7 +12,7 @@ numGenerations = 300
 # size of population
 populationSize = 100
 mutationRate = 0.02
-tournamentSize = 12
+tournamentSize = 9
 elitism = True
 # number of trucks
 numTrucks = 3
