@@ -126,7 +126,7 @@ class Route:
             else:
                 place2 = self.getDustbin(truck_index, j)
             distance = distance + place1.distanceTo(place2)
-            print('Distance from ', place1.toString(), ' to ', place2.toString(), ':', distance)
+            print('Distance from ', place1.toString(), ' to ', place2.toString(), ':', place1.distanceTo(place2))
             place1 = place2
         return distance
 

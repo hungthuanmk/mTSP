@@ -11,14 +11,14 @@ class Dustbin:
 
     def __init__ (self, _id, _address=None):
         self.address = _address
-        self.id = id
+        self.id = _id
         if _address is None:
             self.lat = self.long = -1
         else:
             self.lat, self.long = get_coordinate(_address)
             # self.lat = 1
             # self.long = 1
-
+        # //print('Created id ', self.id)
     def getlat (self):
         return self.lat
 
@@ -51,7 +51,7 @@ class Dustbin:
     #     return R * c
 
     def distanceTo(self, db):
-        return get_direction_distance(self.getlat(), self.getlong(), db.getlat(), db.getlong(), address1=self.address, address2=db.address)
+        return get_direction_distance(self, db)
 
 
     # Gives string representation of the Object with coordinates

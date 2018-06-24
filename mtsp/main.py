@@ -19,6 +19,7 @@ yaxis = []
 xaxis = []
 # Generation count
 
+
 pop = Population(populationSize, True)
 globalRoute = pop.getFittest()
 print('Initial minimum distance: ' + str(globalRoute.getDistance()))

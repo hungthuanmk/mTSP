@@ -8,14 +8,16 @@ def load_data(file_name, first_row, last_row):
     ws = wb.get_sheet_by_name('address')
     # print(ws)
 
+    id = 1
     for row in range(first_row, last_row+1):
         code = ws.cell(row=row, column=1).value
         address = ws.cell(row=row, column=3).value
-        print(code, ' | ', address)
+        # print(code, ' | ', address)
 
         # node = Node(code=code, address=address)
 
-        RouteManager.addDustbin(Dustbin(_id=row, _address=address))
+        RouteManager.addDustbin(Dustbin(_id = id, _address=address))
+        id += 1
 
         # nodes.append(node)
 

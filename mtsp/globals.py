@@ -8,12 +8,12 @@ xMax = 1000
 yMax = 1000
 seedValue = 1
 numNodes = 30
-numGenerations = 300
+numGenerations = 1000
 # size of population
-populationSize = 100
-mutationRate = 0.02
+populationSize = 500
+mutationRate = 0.03
 tournamentSize = 9
-elitism = True
+elitism = False
 # number of trucks
 numTrucks = 3
 
@@ -29,13 +29,13 @@ def random_range(n, total):
 def route_lengths():
     upper = (numNodes + numTrucks - 1)
     # upper = 13
-    # fa = upper/numTrucks*1.6 # max route length
+    fa = upper/numTrucks*1.6 # max route length
     # fa = 12
     # fb = 5
     # fa = 12
-    # fb = upper/numTrucks*0.6 # min route
-    fa = 12
-    fb = 6
+    fb = upper/numTrucks*0.6 # min route
+    # fa = 12
+    # fb = 6
     a = random_range(numTrucks, upper)
     while 1:
         if all( i < fa and i > fb  for i in a):
