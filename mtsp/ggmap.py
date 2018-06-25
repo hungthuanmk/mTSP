@@ -35,7 +35,7 @@ def get_direction_distance(dustbin1, dustbin2):
                                                     # origins=str(lat1) + ', ' + str(long1),
                                                     # destinations=str(lat2)+', '+str(long2)
             origins=dustbin1.address,
-            destinations=dustbin2.address
+            destinations=dustbin2.address, mode='walking'
                                                )['rows'][0]['elements'][0]['distance']['value']
                                            # departure_time=now,
         print(directions_results)
