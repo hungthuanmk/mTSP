@@ -4,6 +4,7 @@ from route import *
 from ggmap import *
 import progressbar
 from visualizer import *
+from excel import *
 pbar = progressbar.ProgressBar()
 
 # Add Dustbins
@@ -39,6 +40,8 @@ for i in pbar(range(numGenerations)):
         visualizer.draw_route(globalRoute, 1)
         visualizer.draw_route(globalRoute, 2)
 
+        # save_data('Database.xlsx', 'results', 1, 1, globalRoute., truck2, truck3)
+
     yaxis.append(localRoute.getDistance())
     xaxis.append(i)
 
@@ -54,8 +57,4 @@ print('Route 1 distance: ', globalRoute.get_route_distance(0))
 print('Route 2 distance: ', globalRoute.get_route_distance(1))
 print('Route 3 distance: ', globalRoute.get_route_distance(2))
 
-# fig = plt.figure()
-
-# plt.plot(xaxis, yaxis, 'r-')
-
-# plt.show()
+export_distance('Database.xlsx', get_distance_dict())

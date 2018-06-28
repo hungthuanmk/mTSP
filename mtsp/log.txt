@@ -1,0 +1,9 @@
+seedValue = 1
+numNodes = 30
+numGenerations = 2000 #500
+# size of population
+populationSize = 500
+mutationRate = 0.02
+tournamentSize = 13  #9
+elitism = True
+>>> 1000: 25000

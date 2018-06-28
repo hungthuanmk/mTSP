@@ -45,3 +45,22 @@ def save_data(file_name, sheet_name, start_row, start_column, truck1, truck2, tr
 
     wb.save(file_name)
 
+
+
+def export_distance(file_name, distances):
+    wb = load_workbook(file_name)
+    if wb.get_sheet_names().count('distance') == 0:
+        ws = wb.create_sheet('distance')
+    else:
+        ws = wb.get_sheet_by_name('distance')
+
+    keys = distances.keys()
+
+    for str in keys:
+        a, b = str.split('|')
+        a = int(a)
+        b = int(b)
+        ws.cell(row=a, column=a).value = 0
+        ws.cell(row=a, column=b).value = distances[str]
+
+    wb.save(file_name)
